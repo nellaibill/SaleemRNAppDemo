@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   Image,
   TextInput,
+  ScrollView,
 } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -13,6 +14,8 @@ import {
   MagnifyingGlassIcon,
   FunnelIcon,
 } from "react-native-heroicons/solid";
+import Categories from "../components/Categories";
+import FeaturedRow from "../components/FeaturedRow";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -42,13 +45,34 @@ const HomeScreen = () => {
       </View>
       <View className="flex-row items-center space-x-2 pb-2 mx-4">
         <View className="flex-row flex-1 space-x-2 bg-gray-200 p-2">
+          
+          <TextInput
+            placeholder="Search for restaurant,item or more"
+            keyboardType="default"
+          />
           <MagnifyingGlassIcon size="20" color="gray" />
-          <TextInput placeholder="Search Services" keyboardType="default" />
         </View>
-        <FunnelIcon size={20} color="#00CCBB" />
       </View>
+      <ScrollView>
+        <Categories></Categories>
+        <FeaturedRow
+          id="1"
+          title="Top Rated near you"
+          description="Paid placements from our partners"
+        ></FeaturedRow>
+        <FeaturedRow
+          id="2"
+          title="Tasty Discounts"
+          description="Good discounts are here"
+        ></FeaturedRow>
+        <FeaturedRow
+          id="3"
+          title="Offers Nears you"
+          description="Offers Near by you"
+        ></FeaturedRow>
+      </ScrollView>
     </SafeAreaView>
-  ); 
+  );
 };
 
 export default HomeScreen;
