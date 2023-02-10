@@ -25,6 +25,13 @@ const HomeScreen = () => {
       headerShown: false,
     });
   }, []);
+
+  const categories = [
+    { id: "1", title: "Tasty Discounts", description: "Tasty Discounts" },
+    { id: "2", title: "Offers", description: "Offers Near by you" },
+    { id: "3", title: "Japan", description: "Tokyo" },
+  ];
+
   return (
     <SafeAreaView className="bg-white pt-10">
       <View className="flex-row pb-3 items-center mx-4 space-x-2">
@@ -45,7 +52,6 @@ const HomeScreen = () => {
       </View>
       <View className="flex-row items-center space-x-2 pb-2 mx-4">
         <View className="flex-row flex-1 space-x-2 bg-gray-200 p-2">
-          
           <TextInput
             placeholder="Search for restaurant,item or more"
             keyboardType="default"
@@ -55,21 +61,16 @@ const HomeScreen = () => {
       </View>
       <ScrollView>
         <Categories></Categories>
-        <FeaturedRow
-          id="1"
-          title="Top Rated near you"
-          description="Paid placements from our partners"
-        ></FeaturedRow>
-        <FeaturedRow
-          id="2"
-          title="Tasty Discounts"
-          description="Good discounts are here"
-        ></FeaturedRow>
-        <FeaturedRow
-          id="3"
-          title="Offers Nears you"
-          description="Offers Near by you"
-        ></FeaturedRow>
+        {categories?.map((category) => {
+          return (
+            <FeaturedRow
+              key={category.id}
+              id={category.id}
+              title={category.title}
+              description={category.description}
+            ></FeaturedRow>
+          );
+        })}
       </ScrollView>
     </SafeAreaView>
   );
