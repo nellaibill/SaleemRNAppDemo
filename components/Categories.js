@@ -25,13 +25,7 @@ const dummyCategories = [
     imgUrl:
       "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/rng/md/carousel/production/vntl1lutut9bqsxjninx",
     title: "Testing 3",
-  },
-  {
-    id: "5",
-    imgUrl:
-      " https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/rng/md/carousel/production/ee5ynhqgyhwdoukilzfu",
-    title: "Testing 3",
-  },
+  }
 ];
 const Categories = () => {
   return (
