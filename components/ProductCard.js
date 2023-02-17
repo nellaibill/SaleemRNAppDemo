@@ -3,12 +3,19 @@ import React from "react";
 import { StarIcon, MapIcon, MapPinIcon } from "react-native-heroicons/solid";
 import { useNavigation } from "@react-navigation/native";
 
-const RestaurantCard = ({ id, imgUrl, title, rating,description }) => {
+const ProductCard = ({ id, imgUrl, title, rating, description, brand }) => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate("Restaurant", { id, imgUrl, title, rating,description});
+        navigation.navigate("Restaurant", {
+          id,
+          imgUrl,
+          title,
+          rating,
+          description,
+          brand,
+        });
       }}
       className="bg-white mr-3 shadow-sm"
     >
@@ -24,15 +31,10 @@ const RestaurantCard = ({ id, imgUrl, title, rating,description }) => {
       <View className="flex-row items-center space-x-1">
         <StarIcon color="green" opacity={0.5} size={22} />
         <Text>{rating}</Text>
-        <Text>Vegetarian </Text>
-      </View>
-      <View className="flex-row items-center space-x-1">
-        <MapPinIcon color="gray" opacity={0.4} size={22} />
-        <Text>{rating}</Text>
-        <Text>Near by Nellai</Text>
+        <Text>{brand}</Text>
       </View>
     </TouchableOpacity>
   );
 };
 
-export default RestaurantCard;
+export default ProductCard;
