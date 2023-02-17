@@ -18,7 +18,6 @@ const DishRow = ({ id, title, price, description, category, image }) => {
   const dispatch = useDispatch();
 
   const addItemsToBasket = () => {
-    console.log("addItemsToBasket");
     dispatch(addToBasket({ id, title, price, description, category, image }));
   };
 
