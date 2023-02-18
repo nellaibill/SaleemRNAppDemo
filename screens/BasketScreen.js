@@ -11,7 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromBasket, selectBasketItems } from "../features/basketSlice";
 import { selectRestaurant } from "../features/restaurantSlice";
-import { XCircleIcon } from "react-native-heroicons/solid";
+import { XCircleIcon,ShoppingCartIcon } from "react-native-heroicons/solid";
 import { useState } from "react";
 import { useMemo } from "react";
 import { useEffect } from "react";
@@ -48,6 +48,14 @@ const BasketScreen = () => {
             <XCircleIcon color="#00CCBB" height={50} width={50} />
           </TouchableOpacity>
         </View>
+        {items.length == 0 && (
+          <View className="flex-row items-center pl-5">
+            <View>
+              <ShoppingCartIcon color="#00CCBB" height={100} width={100} />
+            </View>
+            <Text>There are no items added in your cart !</Text>
+          </View>
+        )}
         <ScrollView className="divide-y divide-gray-200">
           {Object.entries(groupedItemsInBasket).map(([key, items]) => (
             <View
@@ -64,7 +72,9 @@ const BasketScreen = () => {
               </Text>
               <Text className="">{items[0]?.price}</Text>
               <TouchableOpacity
-                onPress={() => dispatch(removeFromBasket({ id: parseInt(key) }))}
+                onPress={() =>
+                  dispatch(removeFromBasket({ id: parseInt(key) }))
+                }
               >
                 <Text className="text-xs text-[#00CCBB]">Remove</Text>
               </TouchableOpacity>
