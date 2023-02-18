@@ -11,7 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromBasket, selectBasketItems } from "../features/basketSlice";
 import { selectRestaurant } from "../features/restaurantSlice";
-import { XCircleIcon,ShoppingCartIcon } from "react-native-heroicons/solid";
+import { XCircleIcon, ShoppingCartIcon } from "react-native-heroicons/solid";
 import { useState } from "react";
 import { useMemo } from "react";
 import { useEffect } from "react";

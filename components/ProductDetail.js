@@ -1,7 +1,6 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { MinusCircleIcon, PlusCircleIcon } from "react-native-heroicons/solid";
-import Currency from "react-currency-formatter";
 import { useDispatch, useSelector } from "react-redux";
 import {
   ArrowLeftIcon,

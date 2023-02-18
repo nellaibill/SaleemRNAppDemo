@@ -41,9 +41,10 @@ const HomeScreen = () => {
     <SafeAreaView className="bg-white pt-10">
       <Header></Header>
       <View className="flex-row items-center space-x-2 pb-2 mx-4">
-        <View className="flex-row flex-1 space-x-2 bg-gray-200 p-2">
+        <View className="flex-row space-x-2 bg-gray-200 p-2">
           <TextInput
-            placeholder="Search for restaurant,item or more"
+            className="flex-1"
+            placeholder="What are you looking for?"
             keyboardType="default"
           />
           <MagnifyingGlassIcon size="20" color="gray" />
