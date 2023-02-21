@@ -6,7 +6,9 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "bundleRelease":"cd android && gradlew clean && gradlew :app:bundleRelease",
+    "assembleRelease":"cd android && gradlew clean && gradlew :app:assembleRelease"
   },
   "dependencies": {
     "@borgo-dev/react-native-image-slider-box": "^1.0.16",
@@ -20,7 +22,6 @@
     "expo": "~47.0.12",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
-    "react-currency-formatter": "^1.1.0",
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
     "react-native-gesture-handler": "~2.8.0",
