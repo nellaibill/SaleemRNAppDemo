@@ -23,7 +23,7 @@ const HomeScreen = () => {
   const categories = useSelector((state) => state.allProducts.categories);
 
   return (
-    <SafeAreaView className="bg-white pt-10">
+    <SafeAreaView className="bg-white pt-3">
       <Header></Header>
       <View className="flex-row items-center space-x-2 pb-2 mx-4">
         <View className="flex-row space-x-2 bg-gray-200 p-2">

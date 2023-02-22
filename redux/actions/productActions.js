@@ -9,10 +9,12 @@ export const fetchCategories = () => async (dispatch) => {
 
 export const fetchProductsByCategory = (categoryName) => async (dispatch) => {
   const response = await storeApi.get("/products/category/" + categoryName);
+  console.log("fetchProductsByCategory", categoryName);
   dispatch({
     type: ActionTypes.FETCH_PRODUCTS_BY_CATEGORY,
     payload: response.data.products,
   });
+  return Promise.resolve();
 };
 
 export const fetchProductsById = (id) => async (dispatch) => {
@@ -21,4 +23,5 @@ export const fetchProductsById = (id) => async (dispatch) => {
     type: ActionTypes.FETCH_PRODUCTS_BY_ID,
     payload: response.data,
   });
+  return Promise.resolve();
 };

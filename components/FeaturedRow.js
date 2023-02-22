@@ -4,18 +4,19 @@ import { ArrowRightIcon } from "react-native-heroicons/solid";
 import ProductCard from "./ProductCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { fetchProductsByCategory } from "../redux/actions/productActions";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsById } from "../redux/actions/productActions";
 const FeaturedRow = ({ title, description, featuredCategory }) => {
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
   useEffect(() => {
-   // dispatch(fetchProductsByCategory(title));
-   getProducts();
+    //dispatch(fetchProductsById(title));
+    getProducts();
   }, []);
-  const productsByCategories = useSelector(
-    (state) => state.allProducts.productsByCategories
-  );
+  // const productsByCategories = useSelector(
+  //   (state) => state.allProducts.productsByCategories
+  // );
+  // console.log("productsByCategories", title);
   const getProducts = () => {
     axios
       .get("https://dummyjson.com/products/category/" + title)

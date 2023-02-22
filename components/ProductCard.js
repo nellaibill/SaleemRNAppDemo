@@ -8,7 +8,7 @@ const ProductCard = ({ id, imgUrl, title, rating, description, brand }) => {
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate("Restaurant", {
+        navigation.navigate("productDetails", {
           id,
           imgUrl,
           title,

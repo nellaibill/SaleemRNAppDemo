@@ -7,19 +7,16 @@ import BasketIcon from "../components/BasketIcon";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setRestaurant } from "../features/restaurantSlice";
-import { useState } from "react";
 import { SliderBox } from "@borgo-dev/react-native-image-slider-box";
 import { fetchProductsById } from "../redux/actions/productActions";
 
-const RestaurantScreen = () => {
+const ProductDetailsScreen = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const [productImages, setproductImages] = useState([]);
   const {
     params: { id, imgUrl, title, rating, description },
   } = useRoute();
   const products = useSelector((state) => state.allProducts.selectedProduct);
-  console.log("selectedProduct", products);
   useEffect(() => {
     dispatch(setRestaurant({ id, imgUrl, title, rating, description }));
     dispatch(fetchProductsById(id));
@@ -64,4 +61,4 @@ const RestaurantScreen = () => {
   );
 };
 
-export default RestaurantScreen;
+export default ProductDetailsScreen;

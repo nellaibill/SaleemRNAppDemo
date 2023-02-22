@@ -3,7 +3,7 @@ import { TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
-import RestaurantScreen from "./screens/RestaurantScreen";
+import ProductDetailsScreen from "./screens/ProductDetailsScreen";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import BasketScreen from "./screens/BasketScreen";
@@ -111,7 +111,7 @@ export default function App() {
               component={MyTabs}
             />
             <Stack.Screen name="home" component={HomeScreen} />
-            <Stack.Screen name="Restaurant" component={RestaurantScreen} />
+            <Stack.Screen name="productDetails" component={ProductDetailsScreen} />
             <Stack.Screen
               name="Basket"
               component={BasketScreen}
