@@ -1,42 +1,27 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Image,
-  TextInput,
-  ScrollView,
-} from "react-native";
+import { View, SafeAreaView, TextInput, ScrollView, Text } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import {
-  ChevronDownIcon,
-  UserIcon,
-  MagnifyingGlassIcon,
-  FunnelIcon,
-} from "react-native-heroicons/solid";
+import { MagnifyingGlassIcon } from "react-native-heroicons/solid";
 import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import Header from "../components/Header";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategories } from "../redux/actions/productActions";
 const HomeScreen = () => {
   const navigation = useNavigation();
-  //As Soon as the screen appears on the screen
+  const dispatch = useDispatch();
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
   }, []);
 
-  const [categories, setCategories] = useState([]);
   useEffect(() => {
-    getProducts();
+    dispatch(fetchCategories());
   }, []);
-  const getProducts = () => {
-    axios.get("https://dummyjson.com/products/categories").then((response) => {
-      setCategories(response.data);
-    });
-  };
+  const categories = useSelector((state) => state.allProducts.categories);
+
   return (
     <SafeAreaView className="bg-white pt-10">
       <Header></Header>
