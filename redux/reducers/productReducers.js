@@ -1,6 +1,7 @@
 import { ActionTypes } from "../constants/action-types";
 
 const initialState = {
+  products: [],
   categories: [],
   productsByCategories: [],
   selectedProduct: {},
@@ -8,6 +9,8 @@ const initialState = {
 
 export const productReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case ActionTypes.FETCH_PRODUCTS:
+      return { ...state, products: payload };
     case ActionTypes.FETCH_CATEGORIES:
       return { ...state, categories: payload };
     case ActionTypes.FETCH_PRODUCTS_BY_CATEGORY:

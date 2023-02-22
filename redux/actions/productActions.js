@@ -1,14 +1,19 @@
 import { ActionTypes } from "../constants/action-types";
-import storeApi from "../../apis/storeApi";
+import dummyJsonApi from "../../apis/dummyJsonApi";
+import fakeStoreApi from "../../apis/fakeStoreApi";
 
+export const fetchProducts = () => async (dispatch) => {
+  const response = await fakeStoreApi.get("/products");
+  dispatch({ type: ActionTypes.FETCH_PRODUCTS, payload: response.data });
+};
 
 export const fetchCategories = () => async (dispatch) => {
-  const response = await storeApi.get("/products/categories");
+  const response = await dummyJsonApi.get("/products/categories");
   dispatch({ type: ActionTypes.FETCH_CATEGORIES, payload: response.data });
 };
 
 export const fetchProductsByCategory = (categoryName) => async (dispatch) => {
-  const response = await storeApi.get("/products/category/" + categoryName);
+  const response = await dummyJsonApi.get("/products/category/" + categoryName);
   console.log("fetchProductsByCategory", categoryName);
   dispatch({
     type: ActionTypes.FETCH_PRODUCTS_BY_CATEGORY,
@@ -18,7 +23,7 @@ export const fetchProductsByCategory = (categoryName) => async (dispatch) => {
 };
 
 export const fetchProductsById = (id) => async (dispatch) => {
-  const response = await storeApi.get("/products/" + id);
+  const response = await dummyJsonApi.get("/products/" + id);
   dispatch({
     type: ActionTypes.FETCH_PRODUCTS_BY_ID,
     payload: response.data,

@@ -13,6 +13,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import CategoriesScreen from "./screens/CategoriesScreen";
 import FavouritiesScreen from "./screens/FavouritiesScreen";
 import UserAccountScreen from "./screens/UserAccountScreen";
+import ProductsScreen from "./screens/ProductsScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -25,21 +26,23 @@ function MyTabs() {
           let iconName;
           let routeName = route.name;
           if (routeName === "Home") {
-            iconName = focused ? "home-outline" : "home-outline";
+            iconName = "home-outline";
           }
           if (routeName === "Categories") {
-            iconName = focused ? "sitemap-outline" : "sitemap-outline";
+            iconName = "sitemap-outline";
           }
           if (routeName === "Basket") {
-            iconName = focused ? "shopping-outline" : "shopping-outline";
+            iconName = "shopping-outline";
           }
           if (routeName === "Favourities") {
-            iconName = focused ? "cards-heart-outline" : "cards-heart-outline";
+            iconName = "cards-heart-outline";
           }
           if (routeName === "UserAccount") {
-            iconName = focused ? "account-box-outline" : "account-box-outline";
+            iconName = "account-box-outline";
           }
-          return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
+          return (
+            <MaterialCommunityIcons name={iconName} size={size} color={color} />
+          );
         },
         tabBarStyle: { backgroundColor: "#ffffff", height: 60 },
         tabBarActiveTintColor: "blue",
@@ -55,7 +58,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Categories"
-        component={CategoriesScreen}
+        component={ProductsScreen}
         options={{
           tabBarButton: CustomTabButton,
         }}
@@ -111,7 +114,10 @@ export default function App() {
               component={MyTabs}
             />
             <Stack.Screen name="home" component={HomeScreen} />
-            <Stack.Screen name="productDetails" component={ProductDetailsScreen} />
+            <Stack.Screen
+              name="productDetails"
+              component={ProductDetailsScreen}
+            />
             <Stack.Screen
               name="Basket"
               component={BasketScreen}
