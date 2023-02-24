@@ -37,7 +37,7 @@ const ProductDetailsScreen = () => {
     let price = selectedItem.price;
     let description = selectedItem.description;
     let category = selectedItem.category;
-    let image = selectedItem.image;
+    let image = selectedItem.thumbnail;
     dispatch(addToBasket({ id, title, price, description, category, image }));
   };
 
