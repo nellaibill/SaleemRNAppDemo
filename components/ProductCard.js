@@ -10,11 +10,6 @@ const ProductCard = ({ id, imgUrl, title, rating, description, brand }) => {
       onPress={() => {
         navigation.navigate("productDetails", {
           id,
-          imgUrl,
-          title,
-          rating,
-          description,
-          brand,
         });
       }}
       className="bg-white mr-3 shadow-sm"

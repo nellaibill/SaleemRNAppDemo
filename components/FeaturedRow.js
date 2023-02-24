@@ -4,19 +4,12 @@ import { ArrowRightIcon } from "react-native-heroicons/solid";
 import ProductCard from "./ProductCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProductsById } from "../redux/actions/productActions";
-const FeaturedRow = ({ title, description, featuredCategory }) => {
-  const dispatch = useDispatch();
+import { useDispatch } from "react-redux";
+const FeaturedRow = ({ title }) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    //dispatch(fetchProductsById(title));
     getProducts();
   }, []);
-  // const productsByCategories = useSelector(
-  //   (state) => state.allProducts.productsByCategories
-  // );
-  // console.log("productsByCategories", title);
   const getProducts = () => {
     axios
       .get("https://dummyjson.com/products/category/" + title)
@@ -38,16 +31,16 @@ const FeaturedRow = ({ title, description, featuredCategory }) => {
         contentContainerStyle={{ paddingHorizontal: 15 }}
         showsHorizontalScrollIndicator={false}
       >
-        {products.map((restaurant) => {
+        {products.map((product) => {
           return (
             <ProductCard
-              key={restaurant.id}
-              id={restaurant.id}
-              title={restaurant.title}
-              imgUrl={restaurant.thumbnail}
-              rating={restaurant.rating}
-              description={restaurant.description}
-              brand={restaurant.brand}
+              key={product.id}
+              id={product.id}
+              title={product.title}
+              imgUrl={product.thumbnail}
+              rating={product.rating}
+              description={product.description}
+              brand={product.brand}
             />
           );
         })}
