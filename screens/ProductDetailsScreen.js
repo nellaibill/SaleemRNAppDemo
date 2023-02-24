@@ -22,7 +22,6 @@ const ProductDetailsScreen = () => {
   } = useRoute();
   selectedItem = useSelector((state) => state.allProducts.selectedProduct);
   useEffect(() => {
-    // dispatch(setRestaurant({ id, imgUrl, title, rating, description }));
     dispatch(fetchProductsById(id));
   }, [dispatch]);
 
@@ -47,11 +46,10 @@ const ProductDetailsScreen = () => {
   };
   return (
     <>
-      <BasketIcon />
       <ScrollView>
         <View className="relative">
           {selectedItem?.images && (
-            <SliderBox images={selectedItem?.images} sliderBoxHeight={500} />
+            <SliderBox images={selectedItem?.images} sliderBoxHeight={300} />
           )}
 
           <Text></Text>
@@ -104,6 +102,7 @@ const ProductDetailsScreen = () => {
           </View>
         </View>
       </ScrollView>
+      <BasketIcon />
     </>
   );
 };

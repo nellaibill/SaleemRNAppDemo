@@ -36,7 +36,6 @@ const HomeScreen = () => {
         </View>
       </View>
       <ScrollView>
-        <Categories></Categories>
         {categories?.map((category) => {
           return (
             <FeaturedRow

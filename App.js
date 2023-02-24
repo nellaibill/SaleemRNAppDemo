@@ -13,8 +13,6 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import CategoriesScreen from "./screens/CategoriesScreen";
 import FavouritiesScreen from "./screens/FavouritiesScreen";
 import UserAccountScreen from "./screens/UserAccountScreen";
-import ProductsScreen from "./screens/ProductsScreen";
-
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
@@ -27,9 +25,6 @@ function MyTabs() {
           let routeName = route.name;
           if (routeName === "Home") {
             iconName = "home-outline";
-          }
-          if (routeName === "Categories") {
-            iconName = "sitemap-outline";
           }
           if (routeName === "Basket") {
             iconName = "shopping-outline";
@@ -52,13 +47,6 @@ function MyTabs() {
       <Tab.Screen
         name="Home"
         component={HomeScreen}
-        options={{
-          tabBarButton: CustomTabButton,
-        }}
-      />
-      <Tab.Screen
-        name="Categories"
-        component={ProductsScreen}
         options={{
           tabBarButton: CustomTabButton,
         }}

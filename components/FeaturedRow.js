@@ -4,7 +4,6 @@ import { ArrowRightIcon } from "react-native-heroicons/solid";
 import ProductCard from "./ProductCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
 const FeaturedRow = ({ title }) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {

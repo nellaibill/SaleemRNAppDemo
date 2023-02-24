@@ -3,8 +3,6 @@ import React from "react";
 import {
   ChevronDownIcon,
   UserIcon,
-  MagnifyingGlassIcon,
-  FunnelIcon,
 } from "react-native-heroicons/solid";
 const Header = () => {
   return (

@@ -1,8 +1,7 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, ScrollView } from "react-native";
 import React from "react";
 import { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../redux/actions/productActions";

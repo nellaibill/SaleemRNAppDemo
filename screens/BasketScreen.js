@@ -14,16 +14,13 @@ import {
   selectBasketItems,
   selectBasketTotal,
 } from "../features/basketSlice";
-import { selectRestaurant } from "../features/restaurantSlice";
 import { XCircleIcon, ShoppingCartIcon } from "react-native-heroicons/solid";
 import { useState } from "react";
-import { useMemo } from "react";
 import { useEffect } from "react";
 
 const BasketScreen = () => {
   const navigation = useNavigation();
   const items = useSelector(selectBasketItems);
-  const restaurant = useSelector(selectRestaurant);
   const basketTotal = useSelector(selectBasketTotal);
   const dispatch = useDispatch();
   const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
@@ -37,15 +34,12 @@ const BasketScreen = () => {
   }, [items]);
 
   return (
-    <SafeAreaView className="flex-1 bg-white mt-20">
+    <SafeAreaView className="flex-1 bg-white mt-5">
       <ScrollView>
         <View>
           <View className="p-5 border-b bg-white shadow-x5">
             <View>
               <Text className="text-lg text-center font-bold">Basket</Text>
-              <Text className="text-center text-gray-400">
-                {restaurant.title}
-              </Text>
             </View>
             <TouchableOpacity
               onPress={navigation.goBack}
@@ -89,16 +83,16 @@ const BasketScreen = () => {
           </ScrollView>
           <View className="p-5 bg-white mt-5 space-y-4">
             <View className="flex-row justify-between">
-              <Text className="text-gray-400">Sub Total </Text>
-              <Text className="text-gray-400">${basketTotal} </Text>
+              <Text className="text-black">Sub Total </Text>
+              <Text className="text-black">${basketTotal} </Text>
             </View>
             <View className="flex-row justify-between">
-              <Text className="text-gray-400">Delivery Fee </Text>
-              <Text className="text-gray-400">$ 40 </Text>
+              <Text className="text-black">Delivery Fee </Text>
+              <Text className="text-black">$ 40 </Text>
             </View>
             <View className="flex-row justify-between">
-              <Text className="text-gray-400">Order Total </Text>
-              <Text className="text-gray-400">${basketTotal + 40}</Text>
+              <Text className="text-black">Order Total </Text>
+              <Text className="text-black">${basketTotal + 40}</Text>
             </View>
             <TouchableOpacity
               className="rounded-lg  bg-[#00CCBB]"

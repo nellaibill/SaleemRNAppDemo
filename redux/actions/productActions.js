@@ -1,11 +1,5 @@
 import { ActionTypes } from "../constants/action-types";
 import dummyJsonApi from "../../apis/dummyJsonApi";
-import fakeStoreApi from "../../apis/fakeStoreApi";
-
-export const fetchProducts = () => async (dispatch) => {
-  const response = await fakeStoreApi.get("/products");
-  dispatch({ type: ActionTypes.FETCH_PRODUCTS, payload: response.data });
-};
 
 export const fetchCategories = () => async (dispatch) => {
   const response = await dummyJsonApi.get("/products/categories");
